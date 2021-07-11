@@ -22,9 +22,13 @@ public class OkHttpUtils {
 
 
   public static void main(String[] args) throws Exception {
-    String url = "https://www.baidu.com/";
-    String text = OkHttpUtils.getAsString(url);
-    System.out.println("url: " + url + " ; response: \n" + text);
+    String url = "http://localhost:8888";
+    int i = 0;
+    while (i++ < 100) {
+      String text = OkHttpUtils.getAsString(url);
+      System.out.println("times: " + i + "; url: " + url + " ; response: \n" + text);
+      Thread.sleep(100);
+    }
 
     // 清理资源
     OkHttpUtils.client = null;
